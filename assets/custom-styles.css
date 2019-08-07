@@ -1,0 +1,83 @@
+/**
+ IMPORT FONTS
+ **/
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan&display=swap');
+
+/**
+  VAR
+ */
+
+:root{
+    --main-color: #2b59c3;
+}
+
+
+/**
+  GENERAL
+ */
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    color:white;
+    scroll-behavior: smooth;
+    font-family:  'Baloo Chettan', Helvetica, sans-serif}
+
+.section {
+    height:100vh;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.title{
+    color: var(--main-color);
+    font-size: 5rem;
+}
+
+.subtitle{
+    color: var(--main-color);
+}
+
+#section-home {
+    background-color: white;
+
+}
+
+.box {
+    transition: 0.6s;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 0px 0px ;
+    -moz-box-shadow: 0px 0px 0px 0px ;
+    box-shadow: 0px 0px 0px 0px ;
+
+    border-top: 2px solid var(--main-color);
+    border-right: 5px solid var(--main-color);
+    border-bottom: 5px solid var(--main-color);
+    border-left: 2px solid var(--main-color);
+}
+
+.box:hover {
+    -webkit-box-shadow: 10px 10px 0px 0px var(--main-color);
+    -moz-box-shadow: 10px 10px 0px 0px var(--main-color);
+    box-shadow: 10px 10px 0px 0px var(--main-color);
+    transition: 0.6s;
+}
+
+/**
+  MARGINS AND PADDING
+ */
+
+.mgb-1 {
+    margin-bottom: 2rem;
+}
+
+
+/**
+ >>>>>>>>> POSITIONS
+ */
