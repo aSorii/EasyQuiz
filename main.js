@@ -51,11 +51,12 @@ const questions = [
     },
 
 ];
-let counter = 0;
+let counter = undefined;
 let hit = undefined;
 
 function start() {
     hit = 0;
+    counter = 0;
     goToSection(questions[0]);
 }
 
@@ -65,10 +66,7 @@ function start() {
 function goToSection(screenObject){
 
     const element  = document.getElementById(screenObject.screen);
-    if(!screenObject.hasOwnProperty('final')){
-        buildHTML(screenObject);
-    }
-
+    buildHTML(screenObject);
     element.scrollIntoView(true);
     element.scrollIntoView({behavior:"smooth"}); // smooth scroll
     changeMainColor(screenObject.color);
@@ -97,15 +95,22 @@ function changeMainColor(color){
 
 /**
  * Receive questionObject and build section with question and answers
- * @param questionObject
+ * @param screenObject
  */
-function buildHTML(questionObject){
-    const childs = document.querySelectorAll('#'+questionObject.screen + ' .box .subtitle');
-    const questionHTML = document.querySelector('#'+questionObject.screen + ' .question');
-    questionHTML.innerHTML = questionObject.question;
-    for (let i = 0; i < childs.length; i++){
-        let htmlElement = childs[i];
-        htmlElement.innerHTML = questionObject.answers[i];
+function buildHTML(screenObject){
+    console.log(screenObject.screen);
+    if (screenObject.hasOwnProperty('final')) {
+        document.querySelector('.final-score').innerHTML = hit + '/' + counter;
+    } else if (screenObject.hasOwnProperty('start')) {
+
+    } else {
+        const childs = document.querySelectorAll('#'+screenObject.screen + ' .box .subtitle');
+        const questionHTML = document.querySelector('#'+screenObject.screen + ' .question');
+        questionHTML.innerHTML = screenObject.question;
+        for (let i = 0; i < childs.length; i++){
+            let htmlElement = childs[i];
+            htmlElement.innerHTML = screenObject.answers[i];
+        }
     }
 }
 
@@ -116,4 +121,7 @@ window.onload = (e) => {
     buttons.forEach((node) => {
         node.addEventListener('click', (e) => {checkAnswer(e);})
     })
+     const about = document.querySelector('.button-repeat');
+    about.addEventListener('click', (e) => {goToSection({screen: 'section-home', color: '#ee4266', start: true})})
+
 };
