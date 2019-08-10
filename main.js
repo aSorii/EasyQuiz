@@ -2,8 +2,6 @@
 /**
  * TO-DO LIST
  * TODO Fix reset scroll when refresh browser
- * TODO Create Final screen
- * TODO Create About screen
  */
 
 let root = document.documentElement;
@@ -75,7 +73,8 @@ function goToSection(screenObject){
 function checkAnswer(target){
     const questionObject = questions[counter];
     console.log(questionObject);
-    let answer = target.originalTarget.innerText;
+    console.log(target);
+    let answer = target.target.innerHTML;
     if (answer === questionObject.correct) {
          hit++;
          console.log('¡ Acierto !');
@@ -100,7 +99,7 @@ function changeMainColor(color){
 function buildHTML(screenObject){
     console.log(screenObject.screen);
     if (screenObject.hasOwnProperty('final')) {
-        document.querySelector('.final-score').innerHTML = hit + '/' + counter;
+        document.querySelector('.final-score').innerHTML = hit + "/" + counter;
     } else if (screenObject.hasOwnProperty('start')) {
 
     } else {
