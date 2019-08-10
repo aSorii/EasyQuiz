@@ -1,7 +1,7 @@
 # EasyQuiz
 Simple javascript quiz game
 
-### :triangular_ruler: Build with
+### Build with
 - Javascript
 - [Bulma CSS][bulma]
 
